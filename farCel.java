@@ -1,24 +1,31 @@
 import java.util.*;
-
-public class farCel
+class farCel
 {
-  public static int temperatureConversion(int n, String str)
-  {
-    int result = 0;
-    if(str.equals("CF"))
-    result = (n*9/5)+32;
-	else
-    result = (n-32)*5/9;
-	return result;
-  }
-  public static void main (String[]args)
-  {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("Enter value");
-    int n = sc.nextInt();
-    System.out.println("Enter FC or CF");
-    String str = sc.nextLine();
-    sc.nextLine();
-    System.out.println(temperatureConversion(n, str));
-  }
+	public static void main(String arg[])	
+	{
+            Scanner sc=new Scanner(System.in);
+	    System.out.println("Choose type of conversion \n 1.Fahrenheit to Celsius  \n 2.Celsius to Fahrenheit");
+            int n=sc.nextInt();
+	    temperatureConversion(n);
+	}
+       public static void temperatureConversion(int n)
+       {
+           Scanner sc=new Scanner(System.in);
+           double f=0,c=0;
+           switch(n)
+	    {
+	    case 1:  System.out.println("Enter  Fahrenheit temperature");
+                   	  f=sc.nextDouble();
+	    	  c=(f-32)*5/9;
+	    	  System.out.println("Celsius temperature is = "+c);
+		  break;
+	    case 2:  System.out.println("Enter  Celsius temperature");
+                   	  c=sc.nextDouble();
+	    	  f=((9*c)/5)+32;
+	    	  System.out.println("Fahrenheit temperature is = "+f);
+                  break;
+	   default:  System.out.println("please choose valid choice");
+	   }
+           
+       }
 }
